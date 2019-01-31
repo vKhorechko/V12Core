@@ -7,4 +7,9 @@
   <ItemGroup>
     <Folder Include="Interfaces\" />
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Runtime">
+      <HintPath>..\..\..\..\..\..\usr\local\share\dotnet\sdk\NuGetFallbackFolder\microsoft.netcore.app\2.1.0\ref\netcoreapp2.1\System.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>

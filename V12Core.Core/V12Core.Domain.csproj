@@ -1,10 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <BaseDirectory>V12Core.Domain</BaseDirectory>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Entities\" />
+    <Compile Remove="V12Core.Application\obj\Debug\netcoreapp2.1\V12Core.Application.AssemblyInfo.cs" />
+    <Compile Remove="V12Core.Application\Interfaces\IEmailSender.cs" />
+    <Compile Remove="V12Core.Application\Interfaces\ISmsSender.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="V12Core.Application\obj\project.assets.json" />
+    <None Remove="V12Core.Application\obj\V12Core.Application.csproj.nuget.g.props" />
+    <None Remove="V12Core.Application\obj\V12Core.Application.csproj.nuget.g.targets" />
+    <None Remove="V12Core.Application\obj\V12Core.Application.csproj.nuget.cache" />
+    <None Remove="V12Core.Application\obj\Debug\netcoreapp2.1\V12Core.Application.assets.cache" />
+    <None Remove=".DS_Store" />
   </ItemGroup>
 </Project>
