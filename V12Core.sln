@@ -1,6 +1,7 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28407.52
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{E98B646D-18ED-4685-8724-90AE5E74CFB7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{76D68DEB-F186-436B-B7AC-895F56D7085E}"
@@ -13,13 +14,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastucture", "Infrastuct
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{5D62169F-7820-4FA3-853D-4DEB3A37C685}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "V12Core.WebUI", "V12Core.WebUI\V12Core.WebUI.csproj", "{755B07BF-36DE-4210-BA0B-D125470785CC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "V12Core.WebUI", "V12Core.Presentation\V12Core.WebUI\V12Core.WebUI.csproj", "{755B07BF-36DE-4210-BA0B-D125470785CC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{34B7B178-2A26-441F-8BD3-CC70756D1D11} = {34B7B178-2A26-441F-8BD3-CC70756D1D11}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "V12Core.Domain", "V12Core.Core\V12Core.Domain.csproj", "{34B7B178-2A26-441F-8BD3-CC70756D1D11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "V12Core.Domain", "V12Core.Core\V12Core.Domain\V12Core.Domain.csproj", "{34B7B178-2A26-441F-8BD3-CC70756D1D11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "V12Core.Application", "V12Core.Core\V12Core.Application\V12Core.Application.csproj", "{6D3CF788-43CC-4781-AFA5-FBC8C4A061B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "V12Core.Application", "V12Core.Core\V12Core.Application\V12Core.Application.csproj", "{6D3CF788-43CC-4781-AFA5-FBC8C4A061B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "V12Core.Infrastructure", "V12Core.Infrastructure\V12Core.Infrastructure.csproj", "{E0096D58-EE9B-4F1F-B893-1B070079AEB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "V12Core.Infrastructure", "V12Core.Infrastructure\V12Core.Infrastructure.csproj", "{E0096D58-EE9B-4F1F-B893-1B070079AEB5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +48,9 @@ Global
 		{E0096D58-EE9B-4F1F-B893-1B070079AEB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0096D58-EE9B-4F1F-B893-1B070079AEB5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C24697C0-AF28-422B-8039-ADDC096CF8DD} = {E98B646D-18ED-4685-8724-90AE5E74CFB7}
 		{FC3CB2E5-2DBD-46C9-A33B-FE8D2A585A40} = {E98B646D-18ED-4685-8724-90AE5E74CFB7}
@@ -53,5 +60,8 @@ Global
 		{34B7B178-2A26-441F-8BD3-CC70756D1D11} = {FC3CB2E5-2DBD-46C9-A33B-FE8D2A585A40}
 		{6D3CF788-43CC-4781-AFA5-FBC8C4A061B1} = {FC3CB2E5-2DBD-46C9-A33B-FE8D2A585A40}
 		{E0096D58-EE9B-4F1F-B893-1B070079AEB5} = {1FBFBE59-3CA0-4E60-9371-EF407877003A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {956C4EE9-3EF7-4D43-9218-E29C5F28A5FF}
 	EndGlobalSection
 EndGlobal
