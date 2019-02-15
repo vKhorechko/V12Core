@@ -10,7 +10,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using V12Core.Application.Interfaces;
 using V12Core.Domain.Entities;
+using V12Core.Infrastructure.Services;
 
 namespace V12Core.WebUI
 {
@@ -51,8 +53,9 @@ namespace V12Core.WebUI
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
             });
 
-            services.Configure<SMSoptions>(Configuration);
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.Configure<SMSoptions>(Configuration.GetSection("SMSoptions"));
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
+            services.AddScoped<ISmsSender, AuthMessageSender>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
