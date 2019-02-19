@@ -11,6 +11,7 @@
     <Compile Remove="V12Core.Application\Interfaces\ISmsSender.cs" />
   </ItemGroup> -->
   <ItemGroup>
+    <Folder Include="Entities\" />
     <None Remove="V12Core.Application\obj\project.assets.json" />
     <None Remove="V12Core.Application\obj\V12Core.Application.csproj.nuget.g.props" />
     <None Remove="V12Core.Application\obj\V12Core.Application.csproj.nuget.g.targets" />

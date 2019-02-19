@@ -8,7 +8,7 @@
     <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Twilio" Version="5.25.1" />
+    <PackageReference Include="Twilio" Version="5.26.1" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="2.2.0" />
   </ItemGroup>
   <ItemGroup>
