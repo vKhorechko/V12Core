@@ -58,13 +58,26 @@ namespace V12Core.WebUI
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddDefaultIdentity<IdentityUser>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
+
 
             services.Configure<SMSoptions>(Configuration.GetSection("SMSoptions"));
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
+            services.Configure<EmailOptions>(Configuration.GetSection("EmailOptions"));
             services.AddScoped<ISmsSender, AuthMessageSender>();
+            services.AddScoped<IEmailSender, AuthMessageSender>();
+            services.AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Latest)
+                .AddRazorPagesOptions(options =>
+                {
+                    options.AllowAreas = true;
+                    options.Conventions.AuthorizeAreaFolder("Identity", "/Account/Manage");
+                    options.Conventions.AuthorizeAreaPage("Identity", "/Account/Logout");
+                });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -73,6 +86,7 @@ namespace V12Core.WebUI
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseDatabaseErrorPage();
             }
             else
             {
@@ -84,6 +98,7 @@ namespace V12Core.WebUI
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseAuthentication();
 
             app.UseMvc();
         }

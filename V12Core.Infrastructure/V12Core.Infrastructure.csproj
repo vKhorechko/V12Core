@@ -8,6 +8,7 @@
     <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="MailKit" Version="2.1.2" />
     <PackageReference Include="Twilio" Version="5.26.1" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="2.2.0" />
   </ItemGroup>

@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Options;
+﻿using MailKit.Net.Smtp;
+using Microsoft.Extensions.Options;
+using MimeKit;
 using System.Threading.Tasks;
 using Twilio;
 using Twilio.Rest.Api.V2010.Account;
@@ -13,32 +15,47 @@ namespace V12Core.Infrastructure.Services
     // For more details see this link https://go.microsoft.com/fwlink/?LinkID=532713
     public class AuthMessageSender : IEmailSender, ISmsSender
     {
-        public AuthMessageSender(IOptions<SMSoptions> optionsAccessor)
+        public AuthMessageSender(IOptions<SMSoptions> smsOptionsAccessor, IOptions<EmailOptions> emailOptionsAccessor)
         {
-            Options = optionsAccessor.Value;
+            SMSOptions = smsOptionsAccessor.Value;
+            EmailOptions = emailOptionsAccessor.Value;
         }
 
-        public SMSoptions Options { get; }  // set only via Secret Manager
+        public SMSoptions SMSOptions { get; }  // set only via Secret Manager
+        public EmailOptions EmailOptions { get; }
 
-        public Task SendEmailAsync(string email, string subject, string message)
+        public async Task SendEmailAsync(string email, string subject, string message)
         {
-            // Plug in your email service here to send an email.
-            return Task.FromResult(0);
+            var emailMessage = new MimeMessage();
+
+            emailMessage.From.Add(new MailboxAddress("Администрация сайта", EmailOptions.Login));
+            emailMessage.To.Add(new MailboxAddress("", email));
+            emailMessage.Subject = subject;
+            emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Html)
+            {
+                Text = message
+            };
+
+            using (var client = new SmtpClient())
+            {
+                await client.ConnectAsync(EmailOptions.SMTPserver, EmailOptions.Port, EmailOptions.UseSSL);
+                await client.AuthenticateAsync(EmailOptions.Login, EmailOptions.Password);
+                await client.SendAsync(emailMessage);
+
+                await client.DisconnectAsync(true);
+            }
         }
 
-        public Task SendSmsAsync(string number, string message)
+        public async Task SendSmsAsync(string number, string message)
         {
-            // Plug in your SMS service here to send a text message.
-            // Your Account SID from twilio.com/console
-            var accountSid = Options.SMSAccountIdentification;
-            // Your Auth Token from twilio.com/console
-            var authToken = Options.SMSAccountPassword;
+            var accountSid = SMSOptions.SMSAccountIdentification;
+            var authToken = SMSOptions.SMSAccountPassword;
 
             TwilioClient.Init(accountSid, authToken);
 
-            return MessageResource.CreateAsync(
+            await MessageResource.CreateAsync(
               to: new PhoneNumber(number),
-              from: new PhoneNumber(Options.SMSAccountFrom),
+              from: new PhoneNumber(SMSOptions.SMSAccountFrom),
               body: message);
         }
     }

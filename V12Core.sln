@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastucture", "Infrastuct
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{5D62169F-7820-4FA3-853D-4DEB3A37C685}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "V12Core.WebUI", "V12Core.Presentation\V12Core.WebUI\V12Core.WebUI.csproj", "{755B07BF-36DE-4210-BA0B-D125470785CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "V12Core.WebUI", "V12Core.Presentation\V12Core.WebUI\V12Core.WebUI.csproj", "{755B07BF-36DE-4210-BA0B-D125470785CC}"
 	ProjectSection(ProjectDependencies) = postProject
 		{7D59DB20-46C7-4731-9B0F-7EC6976DBDD9} = {7D59DB20-46C7-4731-9B0F-7EC6976DBDD9}
 	EndProjectSection
@@ -23,11 +23,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "V12Core.Application", "V12C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "V12Core.Infrastructure", "V12Core.Infrastructure\V12Core.Infrastructure.csproj", "{E0096D58-EE9B-4F1F-B893-1B070079AEB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "V12Core.Domain", "V12Core.Core\V12Core.Domain\V12Core.Domain.csproj", "{7D59DB20-46C7-4731-9B0F-7EC6976DBDD9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "V12Core.Domain", "V12Core.Core\V12Core.Domain\V12Core.Domain.csproj", "{7D59DB20-46C7-4731-9B0F-7EC6976DBDD9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistence", "Persistence", "{B29AB3F5-DD60-48FC-8FC9-8348843947F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "V12Core.Persistence", "V12Core.Persistence\V12Core.Persistence\V12Core.Persistence.csproj", "{1CC914ED-A6E7-4010-8E45-795BE247AC4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "V12Core.Persistence", "V12Core.Persistence\V12Core.Persistence.csproj", "{1CC914ED-A6E7-4010-8E45-795BE247AC4A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

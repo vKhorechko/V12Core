@@ -14,7 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\V12Core.Core\V12Core.Domain\V12Core.Domain.csproj" />
     <ProjectReference Include="..\..\V12Core.Infrastructure\V12Core.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\V12Core.Persistence\V12Core.Persistence.csproj" />
     <!--<DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.1.0" />-->
-    <ProjectReference Include="..\..\V12Core.Persistence\V12Core.Persistence\V12Core.Persistence.csproj" />
   </ItemGroup>
 </Project>
